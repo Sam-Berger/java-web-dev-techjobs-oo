@@ -13,6 +13,12 @@ public class Job {
     private PositionType positionType;
     private CoreCompetency coreCompetency;
 
+    public static void main (String[] args) {
+        Job testJob = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType(
+                "Quality control"), new CoreCompetency("Persistence"));
+        System.out.println(testJob.toString());
+    }
+
     // TODO: Add two constructors - one to initialize a unique ID and a second to initialize the
     //  other five fields. The second constructor should also call the first in order to initialize
     //  the 'id' field.
@@ -49,6 +55,60 @@ public class Job {
     public int hashCode() {
         return Objects.hash(id);
     }
+
+    @Override
+    public String toString() {
+        String displayName;
+        String displayEmployer;
+        String displayLocation;
+        String displayPositionType;
+        String displayCoreCompetency;
+
+        if (this.getName() == null || this.getName() == "") {
+            displayName = "Data not available";
+        }
+        else {
+            displayName = this.getName();
+        }
+
+        if (this.getEmployer() == null){
+            displayEmployer = "Data not available";
+        }
+        else {
+            displayEmployer = this.getEmployer().getValue();
+        }
+
+        if (this.getLocation() == null) {
+            displayLocation = "Data not available";
+        }
+        else {
+            displayLocation = this.getLocation().getValue();
+        }
+
+        if (this.getPositionType() == null) {
+            displayPositionType = "Data not available";
+        }
+        else {
+            displayPositionType = this.getPositionType().getValue();
+        }
+
+        if (this.getCoreCompetency() == null) {
+            displayCoreCompetency = "Data not available";
+        }
+        else {
+            displayCoreCompetency = this.getCoreCompetency().getValue();
+        }
+
+        return "\n" +
+                "ID: " + this.getId() +
+                "\nName: " + displayName +
+                "\nEmployer: " + displayEmployer +
+                "\nLocation: " + displayLocation +
+                "\nPosition Type: " + displayPositionType +
+                "\nCore Competency: " + displayCoreCompetency + "\n";
+
+    }
+
 
 
     // TODO: Add getters for each field EXCEPT nextId. Add setters for each field EXCEPT nextID
