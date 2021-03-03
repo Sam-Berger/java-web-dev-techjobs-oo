@@ -13,11 +13,6 @@ public class Job {
     private PositionType positionType;
     private CoreCompetency coreCompetency;
 
-    public static void main (String[] args) {
-        Job testJob = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType(
-                "Quality control"), new CoreCompetency("Persistence"));
-        System.out.println(testJob.toString());
-    }
 
     // TODO: Add two constructors - one to initialize a unique ID and a second to initialize the
     //  other five fields. The second constructor should also call the first in order to initialize
