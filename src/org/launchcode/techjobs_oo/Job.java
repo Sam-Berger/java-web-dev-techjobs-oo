@@ -47,7 +47,7 @@ public class Job {
         Job job = (Job) o;
         //the next line is unusual, but it allows the test testJobsForEquality() to run and keep the id numbers
         // sequential. The previous line in casting increases nextId by 2, so we are undoing that.
-        nextId -=2;
+        //nextId -=2;
         return id == job.id;
     }
 
